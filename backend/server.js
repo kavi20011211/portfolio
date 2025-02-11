@@ -6,12 +6,12 @@ const cors = require("cors");
 const app = express();
 const corsOptions = {
     origin: "*", 
-    methods: ["GET", "POST", "PUT", "DELETE"], 
-    allowedHeaders: ["Content-Type", "Authorization"]
+    credentials: true,
+    optionSuccessStatus:200
 };
 
 app.use(cors(corsOptions));
-app.options("*",cors(corsOptions));
+// app.options("*",cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
