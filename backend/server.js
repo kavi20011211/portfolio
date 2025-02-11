@@ -11,10 +11,10 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/api/users',require('./routes/UserRoutes'));
+app.use('/api/users', require('./routes/UserRoutes'));
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
