@@ -10,6 +10,6 @@ app.use('/api/users',require('./routes/UserRoutes'));
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
-app.listen(PORT, () => console.log("Server ready on port 3000."));
+app.listen(PORT, () => console.log(`Server ready on port ${PORT}.`));
 
 module.exports = app;

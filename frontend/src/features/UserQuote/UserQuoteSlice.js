@@ -27,7 +27,7 @@ export const UserQuoteSlice = createSlice({
     },
     extraReducers:(builder)=>{
         builder
-        .addCase(createSlice.pending, (state)=>{
+        .addCase(createQuote.pending, (state)=>{
             state.isLoading=true
         })
         .addCase(createQuote.fulfilled,(state,action)=>{

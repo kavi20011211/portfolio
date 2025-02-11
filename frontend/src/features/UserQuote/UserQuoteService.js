@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/users';
+const API_URL = `${process.env.REACT_APP_API_URL}`;
 
 const createQuote = async(quoteData)=>{
     const response = await axios.post(API_URL,quoteData);

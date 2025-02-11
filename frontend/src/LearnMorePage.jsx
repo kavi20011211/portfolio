@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import {useDispatch,useSelector} from 'react-redux';
 import {createQuote,reset} from './features/UserQuote/UserQuoteSlice';
+import {Link} from 'react-router-dom';
 
 function LearnMorePage() {
   const skills = [
@@ -53,7 +54,7 @@ function LearnMorePage() {
     const quoteData = {
       name,
       email,
-      imessage
+      message:imessage
     }
     console.log(quoteData);
     dispatch(createQuote(quoteData));
@@ -134,9 +135,9 @@ function LearnMorePage() {
             <p className='font-normal text-left md:font-medium'>If you need to connect with me for a project. Fill the form or send an email or message to below contact details. Thank you.</p>
 
             <div className='flex flex-row gap-10 mt-3 mb-3 md:gap-16 md:mt-6 md:mb-6'>
-              <i class="bi bi-instagram"></i>
-              <i class="bi bi-linkedin"></i>
-              <i class="bi bi-github"></i>
+              <Link to='https://www.instagram.com/hey_im_kavi.01/'><i class="bi bi-instagram"></i></Link>
+              <Link to='https://www.linkedin.com/in/uvindu-suraweera-03b527216/'><i class="bi bi-linkedin"></i></Link>
+              <Link to='https://github.com/kavi20011211'><i class="bi bi-github"></i></Link>
             </div>
 
             <p className='font-normal text-left md:font-medium'>kavishkauvindu0@gmail.com</p>
@@ -148,8 +149,8 @@ function LearnMorePage() {
             <form className="flex flex-col gap-3" onSubmit={onSubmit}>
               <input type="text" placeholder="Enter your name" className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2   text-text-color" name='name' id='name' onChange={onChange} value={name}/>
               <input type="email" placeholder="Enter your email" className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2   text-text-color" name='email' id='email' onChange={onChange} value={email}/>
-              <textarea type="text" placeholder="Enter your message" className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2   text-text-color" name='message' id='message' onChange={onChange} value={imessage}/>
-              <button disabled className="bg-cube-color text-white px-4 py-2 rounded-md text-center w-full hover:bg-cube-color transition-all">
+              <textarea type="text" placeholder="Enter your message" className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2   text-text-color" name='imessage' id='imessage' onChange={onChange} value={imessage}/>
+              <button className="bg-cube-color text-white px-4 py-2 rounded-md text-center w-full hover:bg-cube-color transition-all">
                 Send
               </button>
             </form>
