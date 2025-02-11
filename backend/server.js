@@ -22,6 +22,17 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://portfolio-me-pink-one.vercel.app");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Origin, X-Requested-With, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true");
+    if (req.method === "OPTIONS") {
+        return res.sendStatus(204);
+    }
+    next();
+});
+
 app.use('/api/users', require('./routes/UserRoutes'));
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
