@@ -5,12 +5,18 @@ const cors = require("cors");
 
 const app = express();
 const corsOptions = {
-    origin: 'https://portfolio-me-pink-one.vercel.app', // use your actual domain name (or localhost), using * is not recommended
+    origin: (origin, callback) => {
+        const allowedOrigins = ['https://portfolio-me-pink-one.vercel.app'];
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
     credentials: true
 };
-
 app.use(cors(corsOptions));
 // app.options("*",cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
