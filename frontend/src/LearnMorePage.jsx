@@ -1,4 +1,6 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
+import {useDispatch,useSelector} from 'react-redux';
+import {createQuote,reset} from './features/UserQuote/UserQuoteSlice';
 
 function LearnMorePage() {
   const skills = [
@@ -21,6 +23,55 @@ function LearnMorePage() {
     { name: "Firebase", icon: "/firebase.png" },
     { name: "PostgreSQL", icon: "https://cdn-icons-png.flaticon.com/512/5968/5968342.png" },
   ];
+
+  const [formData,setFormData] = useState({
+    name:'',
+    email:'',
+    message:''
+  })
+
+  const {name,email,imessage} = formData;
+
+  const dispatch = useDispatch();
+
+  const {quotes,isSuccess,isError,message} = useSelector((state)=>state.quote);
+
+  const onChange=(e)=>{
+    setFormData((prevState)=>({
+      ...prevState,
+      [e.target.name]: e.target.value
+    }))
+  }
+
+  const onSubmit =(e)=>{
+    e.preventDefault();
+
+    if(!name,!email,!imessage){
+      alert('Required fields must be filled with values')
+    }
+
+    const quoteData = {
+      name,
+      email,
+      imessage
+    }
+    console.log(quoteData);
+    dispatch(createQuote(quoteData));
+  }
+
+  useEffect(() => {
+    
+    if (isSuccess) {
+      alert('Added quote successfully!');
+    }
+    
+    if (isError) {
+      console.log(message);
+      alert(message)
+    }
+
+    dispatch(reset());
+  }, [isSuccess, isError, message, dispatch]);
   
 
   return (
@@ -94,10 +145,10 @@ function LearnMorePage() {
           </div>
 
           <div className="w-52 h-auto flex flex-col border-4 border-cube-color md:w-80 p-4 rounded-lg shadow-md">
-            <form className="flex flex-col gap-3">
-              <input type="text" placeholder="Enter your name" className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2   text-text-color" />
-              <input type="email" placeholder="Enter your email" className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2   text-text-color" />
-              <textarea type="text" placeholder="Enter your message" className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2   text-text-color" />
+            <form className="flex flex-col gap-3" onSubmit={onSubmit}>
+              <input type="text" placeholder="Enter your name" className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2   text-text-color" name='name' id='name' onChange={onChange} value={name}/>
+              <input type="email" placeholder="Enter your email" className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2   text-text-color" name='email' id='email' onChange={onChange} value={email}/>
+              <textarea type="text" placeholder="Enter your message" className="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2   text-text-color" name='message' id='message' onChange={onChange} value={imessage}/>
               <button disabled className="bg-cube-color text-white px-4 py-2 rounded-md text-center w-full hover:bg-cube-color transition-all">
                 Send
               </button>
