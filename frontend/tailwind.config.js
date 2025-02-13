@@ -11,9 +11,9 @@ module.exports = {
       'orange-bg':'#fccd9d1A'
     },
     extend: {
-      // fontSize:{
-      //   'xs':'8px'
-      // }
+      fontSize:{
+        'xs':'8px'
+      }
     },
   },
   plugins: [],

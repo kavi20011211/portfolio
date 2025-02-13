@@ -78,13 +78,13 @@ function LearnMorePage() {
   return (
     <div className='relative flex flex-col w-full h-screen '>
         <div className='relative flex-1 flex items-center justify-center p-5'>
-        <div className="p-1 w-64 h-72 rounded-lg border-2 border-cube-color overflow-hidden flex items-center justify-center md:w-80 md:h-96">
+        <div className="p-1 w-56 h-60 rounded-lg border-2 border-cube-color overflow-hidden flex items-center justify-center md:w-80 md:h-96">
             <img src="/profile-pic.jpg" className="h-full w-full object-fill" alt="Profile" />
         </div>
 
             <div className='p-4 w-6/12 text-left'>
                 <h1 className='text-3xl font-bold mb-2 md:text-4xl'>About me</h1>
-                <h4 className='text-2xl font-semibold mb-3 md:text-3xl'>I can make <span className='text-cube-color font-bold'>software solutions</span> for your unique business needs.</h4>
+                <h4 className='text-sm font-semibold mb-3 md:text-3xl'>I can make <span className='text-cube-color font-bold'>software solutions</span> for your unique business needs.</h4>
                 <p className='text-xs md:text-xl'>Hi, I'm Uvindu Suraweera currently based in Colombo, Sri Lanka. I'm studying a bachelor's IT degree at SLIIT university.
                 Focus on developing software solutions for web, mobile and desktop to ease the businesses needs in a streamling way.
                 Highly motivated and indie developer best for your idea to make reality. I hope to gain more. Contact me for take my services. Adios amigo!👋</p>
@@ -92,7 +92,7 @@ function LearnMorePage() {
         </div>
         <div className='flex flex-col p-5'>
           <div className='p-4 w-6/12 text-left'>
-            <h1 className='text-2xl font-bold mb-2 md:text-4xl md:pl-[250px]'>Featured Projects</h1>
+            <h1 className='text-xl font-bold mb-2 md:text-4xl md:pl-[250px]'>Featured Projects</h1>
           </div>
 
           <div className="flex flex-col p-10 justify-center items-center md:flex-row gap-4">
