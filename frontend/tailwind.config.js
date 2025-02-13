@@ -10,7 +10,11 @@ module.exports = {
       'cube-color':'#E55812',
       'orange-bg':'#fccd9d1A'
     },
-    extend: {},
+    extend: {
+      // fontSize:{
+      //   'xs':'8px'
+      // }
+    },
   },
   plugins: [],
 }
