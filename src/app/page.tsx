@@ -4,6 +4,7 @@ import Technologies from "./pages/technologies";
 import Experience from "./pages/experience";
 import Achievements from "./pages/achievements";
 import Contact from "./pages/contact";
+import Services from "./pages/services";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Technologies />
       {/* <Experience /> */}
       {/* <Achievements /> */}
+      <Services />
       <Contact />
     </>
   );
